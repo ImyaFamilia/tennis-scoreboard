@@ -1,7 +1,6 @@
 package imya.tennis.servlet;
 
 import imya.tennis.ThymeleafRenderer;
-import imya.tennis.service.ActiveMatchesService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

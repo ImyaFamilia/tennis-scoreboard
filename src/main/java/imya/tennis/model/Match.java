@@ -2,7 +2,6 @@ package imya.tennis.model;
 
 import jakarta.persistence.Entity;
 import lombok.*;
-import org.hibernate.annotations.Table;
 
 import jakarta.persistence.*;
 

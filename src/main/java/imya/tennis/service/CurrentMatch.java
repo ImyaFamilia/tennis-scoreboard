@@ -6,9 +6,6 @@ import imya.tennis.service.score.Score;
 import imya.tennis.service.state.MatchState;
 import imya.tennis.service.state.PointsState;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Iterator;

@@ -2,8 +2,6 @@ package imya.tennis.util;
 
 import imya.tennis.model.Match;
 import imya.tennis.model.Player;
-import jakarta.validation.Validation;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

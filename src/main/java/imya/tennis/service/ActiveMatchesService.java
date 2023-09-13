@@ -4,12 +4,9 @@ import imya.tennis.dao.MatchDao;
 import imya.tennis.dao.PlayerDao;
 import imya.tennis.model.Match;
 import imya.tennis.model.Player;
-import jakarta.persistence.PersistenceException;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 

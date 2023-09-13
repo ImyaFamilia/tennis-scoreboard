@@ -1,7 +1,6 @@
 package imya.tennis.service.score;
 
 import imya.tennis.model.Player;
-import imya.tennis.service.score.Score;
 import lombok.Data;
 
 import java.util.LinkedList;
