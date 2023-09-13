@@ -28,7 +28,7 @@ public class LanguageServlet extends HttpServlet {
         if (request.getHeader("referer") != null) {
             response.sendRedirect(request.getHeader("referer"));
         } else {
-            response.sendRedirect("/");
+            response.sendRedirect(request.getContextPath());
         }
     }
 }
