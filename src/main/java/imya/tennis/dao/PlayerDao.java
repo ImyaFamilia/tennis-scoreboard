@@ -11,7 +11,8 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.Optional;
 
-public class PlayerDao {
+public class PlayerDao implements Dao<Player> {
+    @Override
     public void saveAll(Iterable<Player> iterable) {
         Transaction transaction = null;
 
@@ -29,6 +30,7 @@ public class PlayerDao {
         }
     }
 
+    @Override
     public void save(Player player) {
         Transaction transaction = null;
 
@@ -44,6 +46,7 @@ public class PlayerDao {
         }
     }
 
+    @Override
     public Optional<Player> read(long id) {
         try (Session session = UtilSession.getCurrent()) {
             Transaction transaction = session.beginTransaction();
@@ -77,6 +80,7 @@ public class PlayerDao {
         }
     }
 
+    @Override
     public List<Player> readAll() {
         try (Session session = UtilSession.getCurrent()) {
             Transaction transaction = session.beginTransaction();

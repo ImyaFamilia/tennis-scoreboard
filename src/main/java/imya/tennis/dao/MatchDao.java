@@ -9,7 +9,8 @@ import org.hibernate.Transaction;
 import java.util.List;
 import java.util.Optional;
 
-public class MatchDao {
+public class MatchDao implements Dao<Match> {
+    @Override
     public void saveAll(Iterable<Match> iterable) {
         Transaction transaction = null;
 
@@ -27,6 +28,7 @@ public class MatchDao {
         }
     }
 
+    @Override
     public void save(Match match) {
         Transaction transaction = null;
 
@@ -42,6 +44,7 @@ public class MatchDao {
         }
     }
 
+    @Override
     public Optional<Match> read(long id) {
         try (Session session = UtilSession.getCurrent()) {
             Transaction transaction = session.beginTransaction();
@@ -52,6 +55,7 @@ public class MatchDao {
         }
     }
 
+    @Override
     public List<Match> readAll() {
         try (Session session = UtilSession.getCurrent()) {
             Transaction transaction = session.beginTransaction();
