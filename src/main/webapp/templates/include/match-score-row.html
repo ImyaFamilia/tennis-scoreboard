@@ -1,0 +1,25 @@
+<div class="container" th:fragment="match-score-row (playerScore, pointsState)">
+    <div th:each="set : ${playerScore.previousSets}">
+        <div class="default-margin scoreboard-set">
+            <h1 class="scoreboard-text" th:text="${set}"></h1>
+        </div>
+    </div>
+
+    <div class="default-margin table-border">
+    </div>
+    <div class="default-margin scoreboard-set">
+        <h1 class="scoreboard-text" th:text="${playerScore.set}"></h1>
+    </div>
+    <div class="default-margin scoreboard-points">
+        <h1 class="scoreboard-text" th:if="${not isTieBreak}"
+            th:text="${playerScore.points}"></h1>
+        <h1 class="scoreboard-text" th:if="${isTieBreak}" th:text="${playerScore.tieBreak}"></h1>
+    </div>
+    <form th:action="@{''}" method="post">
+        <input type="hidden" th:value="${playerScore.player.id}" name="player_id">
+        <input class="default-margin btn" type="submit"
+               th:value="#{match-score-row.take_score}">
+    </form>
+
+</div>
+<h1 class="default-margin scoreboard-name capitalize" th:text="${playerScore.player.name}">Player</h1>

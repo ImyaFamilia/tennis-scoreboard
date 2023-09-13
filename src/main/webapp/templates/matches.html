@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{matches.title}">Tennis</title>
+    <div th:replace="~{include/head}"></div>
+</head>
+<body>
+<header th:replace="~{include/header(#{matches.header})}"></header>
+<div th:if="${matches.countOfMatches} > 0">
+    <div class="default-margin">
+    <span th:each="paginationPage : ${#numbers.sequence(1, matches.totalPages, 1)}">
+        <a th:href="@{'' + ${paginationPage}(filter_name=${param.filter_name})}"
+           th:text="${paginationPage != matches.page} ? ${paginationPage} : ${'<' + paginationPage + '>'}"
+           th:if="${param.filter_name != null}">Page</a>
+        <a th:href="@{'' + ${paginationPage}}"
+           th:text="${paginationPage != matches.page}? ${paginationPage} : ${'<' + paginationPage + '>'}"
+           th:if="${param.filter_name == null}">Page</a>
+    </span>
+    </div>
+    <table class="default-margin table">
+        <tr>
+            <th>ID</th>
+            <th th:text="#{matches.first_player}">First player</th>
+            <th th:text="#{matches.second_player}">Second player</th>
+        </tr>
+        <tr th:each="match : ${matches.list}">
+            <td th:text="${match.id}"></td>
+            <td class="capitalize"
+                th:text="${match.firstPlayer.name} != ${match.winner.name} ? ${match.firstPlayer.name} : ${match.firstPlayer.name + ' 👑'}"></td>
+            <td class="capitalize"
+                th:text="${match.secondPlayer.name} != ${match.winner.name} ? ${match.secondPlayer.name} : ${match.secondPlayer.name + ' 👑'}"></td>
+        </tr>
+    </table>
+    <div class="panel default-margin">
+        <form th:method="GET">
+            <div class="default-margin">
+                <label for="filter_name" th:text="#{matches.filter_by_name}">Filter by name: </label>
+                <input type="text" name="filter_name" id="filter_name" th:value="${param.filter_name}?: ''" required>
+            </div>
+            <input class="default-margin btn" type="submit" th:value="#{matches.filter_button}">
+            <a class="default-margin btn" th:text="#{matches.clear_filter_button}" th:href="@{${matches.page}}"
+               th:if="${param.filter_name != null}"></a>
+        </form>
+    </div>
+</div>
+<div th:if="${matches.countOfMatches} <= 0">
+    <h1 class="default-margin" th:text="#{matches.no_matches}">No matches yet</h1>
+</div>
+<footer th:replace="~{include/footer}"></footer>
+</body>
+</html>

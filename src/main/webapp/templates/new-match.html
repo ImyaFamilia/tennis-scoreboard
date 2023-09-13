@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{new-match.title}">Tennis</title>
+    <div th:replace="~{include/head}"></div>
+</head>
+<body>
+<header th:replace="~{include/header(#{new-match.header})}"></header>
+<main class="full-height">
+    <section>
+        <div class="container">
+            <div class="panel new-match">
+                <form th:action="@{''}" th:method="post">
+                    <div class="default-margin text-input">
+                        <label for="first-player" th:text="#{new-match.first_player}">First player</label>
+                        <input type="text" id="first-player" name="first-player" required>
+                    </div>
+                    <div class="default-margin text-input">
+                        <label for="second-player" th:text="#{new-match.second_player}">Second player</label>
+                        <input type="text" id="second-player" name="second-player" required>
+                    </div>
+                    <div th:each="error : ${errors}">
+                        <span class="default-margin" th:text="${error.getMessage}">TEST</span>
+                    </div>
+                    <div th:if="${isSameNames}">
+                        <span class="default-margin" th:text="#{new-match.same_names}">Names can't be same</span>
+                    </div>
+                    <div class="default-margin">
+                        <input class="btn" type="submit" value="Start the game" th:value="#{new-match.new_game}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer th:replace="~{include/footer}"></footer>
+</body>
+</html>

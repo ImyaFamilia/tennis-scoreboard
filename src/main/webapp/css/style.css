@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, serif;
+}
+
+.scoreboard-text {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px;
+    font-size: 80px;
+}
+
+.scoreboard-name {
+    color: white;
+}
+
+header, footer {
+    width: 100%;
+    min-height: 50px;
+    background: #309800;
+    border-bottom: black solid 1px;
+}
+
+header h1 {
+    margin: auto;
+    padding: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.btn {
+    box-shadow: inset 0 1px 0 0 #9acc85;
+    background: #74ad5a linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+    border: 1px solid #3b6e22;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+    text-shadow: 2px 2px 3px #92b879;
+}
+
+.big-btn {
+    font-size: 28px;
+    padding: 24px 76px;
+}
+
+.btn:hover {
+    background: #68a54b linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+}
+
+.btn:hover {
+    position: relative;
+    top: 1px;
+}
+
+.new-match {
+    margin-top: 10%;
+}
+
+.panel {
+    border: black 1px solid;
+    background-color: #e1e1e1;
+    display: inline-block;
+    flex: initial;
+}
+
+.scoreboard {
+    margin-top: 10%;
+    border: black 1px solid;
+    background-color: #2d5913;
+    flex: initial;
+}
+
+.scoreboard-header {
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    text-align: center;
+}
+
+.scoreboard-header h1 {
+    text-transform: uppercase;
+}
+
+.scoreboard-header .previous-sets {
+}
+
+.scoreboard-set {
+    background-color: black;
+    width: 100px;
+    height: 150px;
+    display: inline-block;
+}
+
+.table-border {
+    background-color: #8787da;
+    width: 20px;
+    height: 150px;
+    display: inline-block;
+    text-align: center;
+}
+
+.lang {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.scoreboard-points {
+    background-color: black;
+    width: 200px;
+    height: 150px;
+    display: inline-block;
+}
+
+.panel .text-input input {
+    margin-left: 15px;
+    float: right;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.default-margin {
+    margin: 10px;
+}
+
+.newMatchForm .textInput {
+    float: right;
+}
+
+.table{
+    border: 1px solid #eee;
+    table-layout: fixed;
+    min-width: 100px;
+    margin-bottom: 20px;
+}
+
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+
+.table td{
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd){
+    background: #fff;
+}
+
+.table tbody tr:nth-child(even){
+    background: #F7F7F7;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}

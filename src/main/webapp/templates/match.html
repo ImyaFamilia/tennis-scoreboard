@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{match.title}">Tennis</title>
+    <div th:replace="~{include/head}"></div>
+</head>
+<body>
+<header th:replace="~{include/header(#{match.header})}"></header>
+<div class="container column">
+    <div class="scoreboard">
+        <div th:replace="~{include/match-score-row(${currentMatch.match.firstPlayerScore},${currentMatch.isTieBreak})}"></div>
+        <div th:replace="~{include/match-score-row(${currentMatch.match.secondPlayerScore},${currentMatch.isTieBreak})}"></div>
+    </div>
+</div>
+<footer th:replace="~{include/footer}"></footer>
+</body>
+</html>
