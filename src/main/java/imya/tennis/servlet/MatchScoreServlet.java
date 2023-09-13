@@ -20,7 +20,7 @@ public class MatchScoreServlet extends HttpServlet {
         try {
             uuid = UUID.fromString(request.getPathInfo().substring(1));
         } catch (IllegalArgumentException | NullPointerException e) {
-            response.sendRedirect("/new-match");
+            response.sendRedirect(request.getContextPath() + "/new-match");
             return;
         }
 
@@ -33,7 +33,7 @@ public class MatchScoreServlet extends HttpServlet {
                 .build()
                 .render("/match");
         } else {
-            response.sendRedirect("/new-match");
+            response.sendRedirect(request.getContextPath() + "/new-match");
         }
     }
 
@@ -44,7 +44,7 @@ public class MatchScoreServlet extends HttpServlet {
         try {
             uuid = UUID.fromString(request.getPathInfo().substring(1));
         } catch (IllegalArgumentException | NullPointerException e) {
-            response.sendRedirect("/new-match");
+            response.sendRedirect(request.getContextPath() + "/new-match");
             return;
         }
 
@@ -62,12 +62,12 @@ public class MatchScoreServlet extends HttpServlet {
 
             if (currentMatch.isGameEnded()) {
                 ActiveMatchesService.endMatch(uuid);
-                response.sendRedirect("/matches/last");
+                response.sendRedirect(request.getContextPath() + "/matches/last");
             } else {
-                response.sendRedirect("/match/" + uuid);
+                response.sendRedirect(request.getContextPath() + "/match/" + uuid);
             }
         } else {
-            response.sendRedirect("/new-match");
+            response.sendRedirect(request.getContextPath() + "/new-match");
         }
     }
 }

@@ -44,6 +44,6 @@ public class NewMatchServlet extends HttpServlet {
             return;
         }
 
-        response.sendRedirect("/match/" + uuid);
+        response.sendRedirect(request.getContextPath() + "/match/" + uuid);
     }
 }

@@ -27,7 +27,7 @@ public class MatchesServlet extends HttpServlet {
         try {
             pageParam = request.getPathInfo().substring(1);
         } catch (NullPointerException e) {
-            response.sendRedirect(getURIRedirect("/matches/1",
+            response.sendRedirect(getURIRedirect(request.getContextPath() + "/matches/1",
                 Map.of("filter_name", Optional.ofNullable(filterName))));
             return;
         }
@@ -42,14 +42,14 @@ public class MatchesServlet extends HttpServlet {
             try {
                 pageNumber = Integer.parseInt(pageParam);
             } catch (IllegalArgumentException e) {
-                response.sendRedirect(getURIRedirect("/matches/1",
+                response.sendRedirect(getURIRedirect(request.getContextPath() + "/matches/1",
                     Map.of("filter_name", Optional.ofNullable(filterName))));
                 return;
             }
         }
 
         if (pageNumber > totalPages) {
-            response.sendRedirect(getURIRedirect("/matches" + totalPages,
+            response.sendRedirect(getURIRedirect(request.getContextPath() + "/matches" + totalPages,
                 Map.of("filter_name", Optional.ofNullable(filterName))));
             return;
         }
