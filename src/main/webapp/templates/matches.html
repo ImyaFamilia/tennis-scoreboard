@@ -31,20 +31,20 @@
                 th:text="${match.secondPlayer.name} != ${match.winner.name} ? ${match.secondPlayer.name} : ${match.secondPlayer.name + ' 👑'}"></td>
         </tr>
     </table>
-    <div class="panel default-margin">
-        <form th:method="GET">
-            <div class="default-margin">
-                <label for="filter_name" th:text="#{matches.filter_by_name}">Filter by name: </label>
-                <input type="text" name="filter_name" id="filter_name" th:value="${param.filter_name}?: ''" required>
-            </div>
-            <input class="default-margin btn" type="submit" th:value="#{matches.filter_button}">
-            <a class="default-margin btn" th:text="#{matches.clear_filter_button}" th:href="@{${matches.page}}"
-               th:if="${param.filter_name != null}"></a>
-        </form>
-    </div>
 </div>
 <div th:if="${matches.countOfMatches} <= 0">
     <h1 class="default-margin" th:text="#{matches.no_matches}">No matches yet</h1>
+</div>
+<div class="panel default-margin">
+    <form th:method="GET">
+        <div class="default-margin">
+            <label for="filter_name" th:text="#{matches.filter_by_name}">Filter by name: </label>
+            <input type="text" name="filter_name" id="filter_name" th:value="${param.filter_name}?: ''" required>
+        </div>
+        <input class="default-margin btn" type="submit" th:value="#{matches.filter_button}">
+        <a class="default-margin btn" th:text="#{matches.clear_filter_button}" th:href="@{${matches.page}}"
+           th:if="${param.filter_name != null}"></a>
+    </form>
 </div>
 <footer th:replace="~{include/footer}"></footer>
 </body>
