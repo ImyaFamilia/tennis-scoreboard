@@ -2,6 +2,7 @@ package imya.tennis.dao;
 
 import imya.tennis.util.UtilSession;
 import imya.tennis.model.Player;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.Query;
 import org.hibernate.HibernateException;
@@ -76,7 +77,9 @@ public class PlayerDao implements Dao<Player> {
             Player player = (Player) query.getSingleResult();
 
             transaction.commit();
-            return Optional.ofNullable(player);
+            return Optional.of(player);
+        } catch (NoResultException e) {
+            return Optional.empty();
         }
     }
 
